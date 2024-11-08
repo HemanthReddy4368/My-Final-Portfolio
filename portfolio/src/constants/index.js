@@ -25,6 +25,7 @@ export const EXPERIENCES = [
   {
     year: "2021 - 2022",
     role: "FreeLancer",
+    company: "GlobalLogic",
     description: `As a freelancer in college, I created responsive websites for clients using HTML, CSS, and JavaScript. This role enhanced my project management skills and allowed me to apply my web development knowledge in real-world scenarios.`,
     technologies: ["c#", "React.js", "ASP.NET", "sql"],
   }
