@@ -25,7 +25,7 @@ export const EXPERIENCES = [
   {
     year: "2021 - 2022",
     role: "FreeLancer",
-    company: "GlobalLogic",
+    company: "Myself",
     description: `As a freelancer in college, I created responsive websites for clients using HTML, CSS, and JavaScript. This role enhanced my project management skills and allowed me to apply my web development knowledge in real-world scenarios.`,
     technologies: ["c#", "React.js", "ASP.NET", "sql"],
   }
@@ -38,6 +38,7 @@ export const PROJECTS = [
     description:
       "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
     technologies: ["HTML", "CSS", "React", "c#", "SQL","tailwindcss","ASP.NET"],
+    link:"#",
   },
   {
     title: "Portfolio Website",
@@ -45,6 +46,7 @@ export const PROJECTS = [
     description:
       "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["HTML", "CSS", "React", "tailwindcss"],
+    link: "https://my-final-portfolio-hemanthreddy4368s-projects.vercel.app/",
   },
   {
     title: "MediConnect",
@@ -52,6 +54,7 @@ export const PROJECTS = [
     description:
       "A platform for doctors and patients to connect, schedule appointments, and manage medical records.",
     technologies: ["c#", "sql", "react", "tailwind", "ASP.NET"],
+    link: "#",
   },
 ];
 
