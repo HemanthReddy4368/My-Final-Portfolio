@@ -3,9 +3,9 @@ import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 import project4 from "../assets/projects/project-4.jpg";
 
-export const HERO_CONTENT = `I am a dedicated .NET developer with 3 years of experience in building and maintaining high-quality web applications. My expertise spans the .NET ecosystem, including ASP.NET Core, Entity Framework, and MSBI for comprehensive business intelligence solutions. Additionally, I bring proficiency in front-end development with React and TailwindCSS, enabling me to create seamless, user-centric interfaces. My objective is to blend robust backend systems with intuitive front-end experiences to drive efficient, scalable, and impactful solutions for business success.`;
+export const HERO_CONTENT = `I am a dedicated .NET developer with 3 years of experience in building and maintaining high-quality web applications using the latest .NET technologies, including ASP.NET Core and Entity Framework. My expertise extends to leveraging Microsoft Azure for cloud-based solutions, ensuring scalability and reliability in deployment and operations. I also have hands-on experience with MSBI for comprehensive business intelligence solutions. In addition, I am proficient in front-end development with React and TailwindCSS, enabling me to deliver seamless, user-centric interfaces. My objective is to blend robust backend systems with intuitive front-end experiences, driving efficient, scalable, and impactful solutions for business success.`;
 
-export const ABOUT_TEXT = `I am a skilled .NET developer with a strong commitment to building dynamic and scalable web applications. With 3 years of professional experience, I have developed expertise in the .NET framework, especially ASP.NET Core, Entity Framework, and MSBI for creating powerful data-driven solutions. My background also includes front-end technologies such as React and TailwindCSS, allowing me to bridge the gap between server-side functionality and engaging user interfaces. I am driven by a desire to understand complex systems and turn them into intuitive, high-quality applications. Beyond coding, I am passionate about exploring new tech, staying active, and making meaningful contributions to open-source projects.`;
+export const ABOUT_TEXT = `I am a skilled .NET developer with a strong commitment to building dynamic and scalable web applications. With 3 years of professional experience, I have developed expertise in the latest .NET technologies, including ASP.NET Core and Entity Framework, as well as MSBI for creating powerful data-driven solutions. My experience extends to leveraging Microsoft Azure for deploying and managing cloud-based applications, ensuring reliability and scalability. I am also proficient in front-end technologies such as React and TailwindCSS, allowing me to bridge the gap between robust server-side functionality and engaging user interfaces. I am driven by a desire to understand complex systems and turn them into intuitive, high-quality applications. Beyond coding, I am passionate about exploring new technologies, staying active, and making meaningful contributions to open-source projects.`;
 
 export const EXPERIENCES = [
   {
@@ -33,10 +33,10 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
-    title: "E-Commerce Website",
+    title: "Framer's Connect Website",
     image: project1,
     description:
-      "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
+      "A fully functional Farmers website with features like user authentication, Connecting farmers to business, Showing them daily market trends.",
     technologies: ["HTML", "CSS", "React", "c#", "SQL","tailwindcss","ASP.NET"],
     link:"#",
   },

@@ -1,60 +1,128 @@
 import React from 'react'
 import { CONTACT } from '../constants'
+import { motion } from 'framer-motion'
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa' // Added react-icons
+
+const ContactCard = ({ icon, content, href, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay }}
+    viewport={{ once: true }}
+    className='group relative overflow-hidden rounded-2xl bg-neutral-900/40 p-8 hover:bg-neutral-800/40 transition-all duration-500'
+  >
+    {/* Gradient Border */}
+    <div className="absolute inset-0 border border-transparent bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl"></div>
+    
+    {/* Content Container */}
+    <div className='relative z-10'>
+      {/* Icon */}
+      <div className='text-green-400 mb-4 transform group-hover:scale-110 transition-transform duration-300'>
+        {icon}
+      </div>
+      
+      {/* Content */}
+      {href ? (
+        <a 
+          href={href}
+          className='block text-center'
+          target={href.startsWith('mailto') ? '_blank' : undefined}
+          rel="noopener noreferrer"
+        >
+          {content}
+        </a>
+      ) : (
+        <div className='text-lg md:text-xl text-neutral-300 group-hover:text-white transition-colors duration-300 text-center'>
+          {content}
+        </div>
+      )}
+    </div>
+    
+    {/* Hover Gradient */}
+    <div className="absolute inset-0 bg-gradient-to-r from-green-400/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  </motion.div>
+)
 
 const Contact = () => {
   return (
-    <div className='border-b border-neutral-600 pb-12'>
-      <h2 className='my-20 text-center text-4xl font-bold relative'>
-        Contact Me
-        <div className="h-1 w-20 bg-gradient-to-r from-green-400 to-blue-500 mx-auto mt-4"></div>
-      </h2>
+    <div id="contact" className='container mx-auto px-4 py-16 md:py-24'>
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className='text-center mb-16'
+      >
+        <h2 className='text-4xl md:text-5xl font-bold mb-4'>
+          Contact Me
+        </h2>
+        <div className="h-1 w-20 bg-gradient-to-r from-green-400 to-blue-500 mx-auto"></div>
+        <p className="mt-6 text-neutral-400 max-w-2xl mx-auto text-lg">
+          Feel free to reach out to me for any questions or opportunities!
+        </p>
+      </motion.div>
 
-      <div className='max-w-xl mx-auto px-4'>
-        <div className='space-y-8 text-center'>
-          {/* Address */}
-          <div className='group p-6 rounded-lg hover:bg-neutral-900/40 transition-all duration-300'>
-            <div className='text-green-400 mb-2'>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+      {/* Contact Cards Grid */}
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto'>
+        {/* Address Card */}
+        <ContactCard
+          icon={
+            <div className="flex justify-center items-center w-12 h-12 rounded-full bg-green-400/20 mx-auto">
+              <FaMapMarkerAlt className="w-6 h-6" />
             </div>
-            <p className='text-lg text-neutral-300 group-hover:text-white transition-colors duration-300'>
-              {CONTACT.address}
-            </p>
-          </div>
+          }
+          content={CONTACT.address}
+          delay={0.2}
+        />
 
-          {/* Phone */}
-          <div className='group p-6 rounded-lg hover:bg-neutral-900/40 transition-all duration-300'>
-            <div className='text-green-400 mb-2'>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
+        {/* Phone Card */}
+        <ContactCard
+          icon={
+            <div className="flex justify-center items-center w-12 h-12 rounded-full bg-green-400/20 mx-auto">
+              <FaPhone className="w-6 h-6" />
             </div>
-            <a 
-              href={`tel:${CONTACT.phoneNo}`} 
-              className='text-lg text-neutral-300 group-hover:text-white transition-colors duration-300'
-            >
+          }
+          content={
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-300 hover:text-white font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500 mx-auto">
               {CONTACT.phoneNo}
-            </a>
-          </div>
+            </span>
+          }
+          href={`tel:${CONTACT.phoneNo}`}
+          delay={0.4}
+        />
 
-          {/* Email */}
-          <div className='group p-6 rounded-lg hover:bg-neutral-900/40 transition-all duration-300'>
-            <div className='text-green-400 mb-2'>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+        {/* Email Card */}
+        <ContactCard
+          icon={
+            <div className="flex justify-center items-center w-12 h-12 rounded-full bg-green-400/20 mx-auto">
+              <FaEnvelope className="w-6 h-6" />
             </div>
-            <a 
-              href={`mailto:${CONTACT.email}`}
-              className='text-lg text-neutral-300 group-hover:text-white transition-colors duration-300'
-            >
-              {CONTACT.email}
-            </a>
-          </div>
-        </div>
+          }
+          content={
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-300 hover:text-white font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500 group-hover:scale-105">
+              <FaEnvelope className="w-4 h-4" />
+              <span className="truncate">{CONTACT.email}</span>
+            </span>
+          }
+          href={`mailto:${CONTACT.email}`}
+          delay={0.6}
+        />
       </div>
+
+      {/* Optional: Add a contact form or additional information */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mt-12 text-neutral-400"
+      >
+        <p className="max-w-2xl mx-auto">
+          Looking forward to connecting with you! I'm always open to discussing new projects, 
+          creative ideas, or opportunities to be part of your visions.
+        </p>
+      </motion.div>
     </div>
   )
 }

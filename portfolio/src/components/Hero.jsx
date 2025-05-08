@@ -2,6 +2,7 @@ import React from 'react'
 import { HERO_CONTENT } from '../constants'
 import profile_pic from '../assets/1.jpeg'
 import { motion } from 'framer-motion'
+import { Link } from 'react-scroll' // Make sure to install and import react-scroll
 
 const Hero = () => {
   return (
@@ -47,12 +48,37 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <button className="px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 rounded-lg border border-purple-500/30 text-purple-300 transition-all duration-300 hover:scale-105">
-                View Projects
-              </button>
-              <button className="px-6 py-3 bg-transparent hover:bg-white/5 rounded-lg border border-neutral-700 text-neutral-300 transition-all duration-300 hover:scale-105">
-                Contact Me
-              </button>
+              <Link
+                to="projects"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                className="cursor-pointer"
+              >
+                <motion.button
+                  className="px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 rounded-lg border border-purple-500/30 text-purple-300 transition-all duration-300 hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Projects
+                </motion.button>
+              </Link>
+              
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                className="cursor-pointer"
+              >
+                <motion.button
+                  className="px-6 py-3 bg-transparent hover:bg-white/5 rounded-lg border border-neutral-700 text-neutral-300 transition-all duration-300 hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Contact Me
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -65,16 +91,20 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <div className="relative group">
+            <motion.div 
+              className="relative group"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               {/* Glowing Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
               {/* Profile Picture */}
               <img
                 src={profile_pic}
                 alt="profile"
-                className="relative rounded-full w-80 h-80 object-cover hover:scale-105 transition-transform duration-300"
+                className="relative rounded-full w-80 h-80 object-cover transition-transform duration-300"
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
