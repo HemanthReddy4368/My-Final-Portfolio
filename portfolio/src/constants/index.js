@@ -49,12 +49,12 @@ export const PROJECTS = [
     link: "https://my-final-portfolio-hemanthreddy4368s-projects.vercel.app/",
   },
   {
-    title: "MediConnect",
+    title: "AppointPro+",
     image: project4,
     description:
       "A platform for doctors and patients to connect, schedule appointments, and manage medical records.",
-    technologies: ["c#", "sql", "react", "tailwind", "ASP.NET"],
-    link: "#",
+    technologies: ["c#", "sql", "bootstrap", "ASP.NET MVC"],
+    link: "https://appointpro-bwb9dahea3c4chgx.canadacentral-01.azurewebsites.net/",
   },
 ];
 
